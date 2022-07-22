@@ -1,24 +1,29 @@
 let randomizearray = document.getElementById('randomizearray_button');
 let sort_button = document.getElementById('sort_button')
 let bars_container = document.getElementById("bars_container")
-let heightFactor = 4.5;
+let slider = document.getElementById("slider");
 let minRange = 1;
-let maxRange = 100;
-let numOfBars = 100;
+let maxRange = 130;
+let numOfBars = slider.value;
+let heightFactor = 3;
 let unsorted_array = new Array(numOfBars);
+// unsorted_array = createRandomArray();
+// renderBars(20)
 
 function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function createRandomArray() {
+    let array = new Array(numOfBars);
     for (let i = 0; i < numOfBars; i++) {
-        unsorted_array[i] = randomNum(minRange, maxRange);
+        array[i] = randomNum(minRange, maxRange);
     }
+    return array;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    createRandomArray();
+    unsorted_array = createRandomArray();
     renderBars(unsorted_array)
 })
 
@@ -26,7 +31,7 @@ function renderBars(array) {
     for (var i = 0; i < array.length; i++) {
         let bar = document.createElement("div");
         bar.classList.add("bar");
-        bar.style.height = array[i] * heightFactor+ 'px';
+        bar.style.height = array[i] * heightFactor + 'px';
         bars_container.appendChild(bar)
     }
 }
@@ -36,6 +41,15 @@ randomizearray.addEventListener("click", function () {
     bars_container.innerHTML = ""
     renderBars(unsorted_array)
 })
+
+slider.addEventListener("input", function () {
+  numOfBars = slider.value;
+  //console.log(numOfBars);
+  bars_container.innerHTML = "";
+  unsorted_array = createRandomArray();
+  renderBars(unsorted_array);
+});
+
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
