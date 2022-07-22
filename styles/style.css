@@ -30,7 +30,7 @@ body {
 
 .bar {
     width: 3px;
-    background-color: aqua;
+    background-color: #A2F314;
     margin: 0 0.5px;
     transition: height 0.5s ease-in-out;
 }

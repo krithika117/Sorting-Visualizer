@@ -1,6 +1,8 @@
 let randomizearray = document.getElementById('randomizearray_button');
 let bubblesort_button = document.getElementById('bubblesort_button')
 let insertionsort_button = document.getElementById('insertionsort_button')
+let shellsort_button = document.getElementById('shellsort_button')
+let selectionsort_button = document.getElementById('selectionsort_button')
 let bars_container = document.getElementById("bars_container")
 let slider = document.getElementById("slider");
 let minRange = 1;
@@ -63,20 +65,56 @@ async function shellSort(arr) {
             let j;
             for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                 arr[j] = arr[j - gap];
-                bars[j].style.backgroundColor = "red";
-                bars[j - gap].style.backgroundColor = "red";
+                bars[j].style.backgroundColor = "orange";
+                bars[j - gap].style.backgroundColor = "white";
                 await sleep(30);
                 bars[j].style.height = arr[j] * heightFactor + 'px';
             }
             arr[j] = temp;
             bars[j].style.height = arr[j] * heightFactor + 'px';
-            bars[j].style.backgroundColor = "white";
+            bars[j].style.backgroundColor = "orange";
             await sleep(30);
         }
+
     }
     console.log(arr)
+    for (let k = 0; k < bars.length; k++) {
+        bars[k].style.backgroundColor = "#A2F314";
+    }
     return arr;
 }
+
+async function selectionSort(arr) {
+    let bars = document.getElementsByClassName("bar");
+    for (let i = 0; i < arr.length; i++) {
+        bars[i].style.height = arr[i] * heightFactor + 'px';
+
+        let lowest = i
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lowest]) {
+                lowest = j
+                bars[j].style.height = arr[j] * heightFactor + 'px';
+            }
+
+        }
+        if (lowest !== i) {
+            ;
+            [arr[i], arr[lowest]] = [arr[lowest], arr[i]]
+            bars[i].style.height = arr[i] * heightFactor + 'px';
+            bars[i].style.backgroundColor = "pink";
+            bars[lowest].style.backgroundColor = "white";
+            await sleep(30);
+        }
+        await sleep(30)
+        
+    }
+    for (let k = 0; k < bars.length; k++) {
+        bars[k].style.backgroundColor = "#A2F314";
+    }
+
+    return arr
+}
+
 
 async function bubbleSort(array) {
     let bars = document.getElementsByClassName("bar");
@@ -85,7 +123,7 @@ async function bubbleSort(array) {
             if (array[j] > array[j + 1]) {
                 for (let k = 0; k < bars.length; k++) {
                     if (k !== j && k !== j + 1) {
-                        bars[k].style.backgroundColor = "aqua";
+                        bars[k].style.backgroundColor = "grey";
                     }
                 }
                 let temp = array[j];
@@ -102,6 +140,11 @@ async function bubbleSort(array) {
             }
         }
         await sleep(30);
+        
+        
+    }
+    for (let k = 0; k < bars.length; k++) {
+        bars[k].style.backgroundColor = "#A2F314";
     }
     return array;
 }
@@ -114,31 +157,35 @@ async function InsertionSort(array) {
         while (j >= 0 && array[j] > key) {
             array[j + 1] = array[j];
             bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
-            bars[j + 1].style.backgroundColor = "yellow";
+            bars[j + 1].style.backgroundColor = "white";
             //bars[j + 1].innerText = array[j + 1];
             await sleep(30);
 
             for (let k = 0; k < bars.length; k++) {
                 if (k != j + 1) {
-                    bars[k].style.backgroundColor = "white";
+                    bars[k].style.backgroundColor = "yellow";
                 }
             }
             j = j - 1;
         }
         array[j + 1] = key;
         bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
-        bars[j + 1].style.backgroundColor = "white";
+        bars[j + 1].style.backgroundColor = "yellow";
         //bars[j + 1].innerText = array[j + 1];
         await sleep(30);
     }
 
     for (let k = 0; k < bars.length; k++) {
-        bars[k].style.backgroundColor = "aqua";
+        bars[k].style.backgroundColor = "#A2F314";
     }
     return array;
 }
 
 //Listeners
+selectionsort_button.addEventListener("click", function () {
+    let sorted_array = selectionSort(unsorted_array);
+    console.log(sorted_array)
+})
 
 
 bubblesort_button.addEventListener("click", function () {
