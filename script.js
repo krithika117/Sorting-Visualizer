@@ -1,10 +1,14 @@
 //Buttons and Slider
 let randomizearray = document.getElementById('randomizearray_button')
-let bubblesort_button = document.getElementById('bubblesort_button')
-let insertionsort_button = document.getElementById('insertionsort_button')
-let shellsort_button = document.getElementById('shellsort_button')
-let selectionsort_button = document.getElementById('selectionsort_button')
-let mergesort_button = document.getElementById('mergesort_button')
+// let bubblesort_button = document.getElementById('bubblesort_button')
+// let insertionsort_button = document.getElementById('insertionsort_button')
+// let shellsort_button = document.getElementById('shellsort_button')
+// let selectionsort_button = document.getElementById('selectionsort_button')
+// let mergesort_button = document.getElementById('mergesort_button')
+let sort_button = document.getElementById('sort_button')
+
+let select_algo = document.getElementById("algo");
+
 
 //Variables
 let bars_container = document.getElementById("bars_container")
@@ -65,6 +69,14 @@ function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+//Algo dropdown
+let algotouse = "";
+
+select_algo.addEventListener("change", function () {
+  algotouse = select_algo.value;
+});
+
+
 //Shell sort visualizer
 async function shellSort(arr) {
     console.log(arr)
@@ -113,7 +125,7 @@ async function selectionSort(arr) {
             ;
             [arr[i], arr[lowest]] = [arr[lowest], arr[i]]
             bars[i].style.height = arr[i] * heightFactor + 'px';
-            bars[i].style.backgroundColor = "pink";
+            bars[i].style.backgroundColor = "violet";
             bars[lowest].style.backgroundColor = "white";
             await sleep(30);
         }
@@ -134,7 +146,7 @@ async function bubbleSort(array) {
             if (array[j] > array[j + 1]) {
                 for (let k = 0; k < bars.length; k++) {
                     if (k !== j && k !== j + 1) {
-                        bars[k].style.backgroundColor = "grey";
+                        bars[k].style.backgroundColor = "aqua";
                     }
                 }
                 let temp = array[j];
@@ -209,17 +221,17 @@ async function merge(arr, l, m, r) {
     k = l;
     while (i < n1 && j < n2) {
         bars[i].style.height = arr[i] * heightFactor + "px";
-        bars[i].style.backgroundColor = "lightgreen";
+        bars[i].style.backgroundColor = "red";
         await sleep(30);
         if (L[i] <= R[j]) {
             arr[k] = L[i];
             bars[k].style.height = arr[k] * heightFactor + "px";
-            bars[k].style.backgroundColor = "lightgreen";
+            bars[k].style.backgroundColor = "red";
             i++;
         } else {
             arr[k] = R[j];
             bars[k].style.height = arr[k] * heightFactor + "px";
-            bars[k].style.backgroundColor = "lightgreen";
+            bars[k].style.backgroundColor = "red";
             j++;
         }
         k++;
@@ -228,7 +240,7 @@ async function merge(arr, l, m, r) {
     while (i < n1) {
         arr[k] = L[i];
         bars[k].style.height = arr[k] * heightFactor + "px";
-        bars[k].style.backgroundColor = "lightgreen";
+        bars[k].style.backgroundColor = "red";
         i++;
         k++;
     }
@@ -236,7 +248,7 @@ async function merge(arr, l, m, r) {
     while (j < n2) {
         arr[k] = R[j];
         bars[k].style.height = arr[k] * heightFactor + "px";
-        bars[k].style.backgroundColor = "lightgreen";
+        bars[k].style.backgroundColor = "red";
         j++;
         k++;
     }
@@ -260,29 +272,54 @@ async function mergeSort(arr) {
 }
 
 //Listeners for every button
-selectionsort_button.addEventListener("click", function () {
-    let sorted_array = selectionSort(unsorted_array);
-    // console.log(sorted_array)
-})
+// selectionsort_button.addEventListener("click", function () {
+//     let sorted_array = selectionSort(unsorted_array);
+//     // console.log(sorted_array)
+// })
 
 
-bubblesort_button.addEventListener("click", function () {
-    let sorted_array = bubbleSort(unsorted_array);
-    // console.log(sorted_array)
-})
+// bubblesort_button.addEventListener("click", function () {
+//     let sorted_array = bubbleSort(unsorted_array);
+//     // console.log(sorted_array)
+// })
 
-insertionsort_button.addEventListener("click", function () {
-    let sorted_array = InsertionSort(unsorted_array);
-    // console.log(sorted_array)
-})
+// insertionsort_button.addEventListener("click", function () {
+//     let sorted_array = InsertionSort(unsorted_array);
+//     // console.log(sorted_array)
+// })
 
-shellsort_button.addEventListener("click", function () {
-    let sorted_array = shellSort(unsorted_array);
-    // console.log(sorted_array)
-})
+// shellsort_button.addEventListener("click", function () {
+//     let sorted_array = shellSort(unsorted_array);
+//     // console.log(sorted_array)
+// })
 
-mergesort_button.addEventListener("click", function () {
-    let sorted_array = mergeSort(unsorted_array);
+// mergesort_button.addEventListener("click", function () {
+//     let sorted_array = mergeSort(unsorted_array);  
+//     // console.log(sorted_array)
+// })
+
+sort_button.addEventListener("click", function () {
+    switch (algotouse) {
+        case "shell":
+          shellSort(unsorted_array);
+          break;
+        case "bubble":
+          bubbleSort(unsorted_array);
+          break;
+        case "insertion":
+          InsertionSort(unsorted_array);
+          break;
+        case "selection":
+          selectionSort(unsorted_array);
+          break;
+        case "merge":
+        mergeSort(unsorted_array);
+            break;
+        default:
+          bubbleSort(unsorted_array);
+          break;
+      }
+    
     
     // console.log(sorted_array)
 })

@@ -38,8 +38,9 @@ body {
     padding: 1.2rem;
 }
 
-.buttons_container>button {
+.buttons_container>button,select {
     width: auto;
+    text-align: center;
     height: 30px;
     background-color: #677685;
     border: none;
@@ -48,7 +49,6 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-
 }
 
 button:hover {
