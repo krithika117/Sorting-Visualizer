@@ -1,5 +1,6 @@
 let randomizearray = document.getElementById('randomizearray_button');
-let sort_button = document.getElementById('sort_button')
+let bubblesort_button = document.getElementById('bubblesort_button')
+let insertionsort_button = document.getElementById('insertionsort_button')
 let bars_container = document.getElementById("bars_container")
 let slider = document.getElementById("slider");
 let minRange = 1;
@@ -7,8 +8,6 @@ let maxRange = 130;
 let numOfBars = slider.value;
 let heightFactor = 3;
 let unsorted_array = new Array(numOfBars);
-// unsorted_array = createRandomArray();
-// renderBars(20)
 
 function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -37,22 +36,46 @@ function renderBars(array) {
 }
 
 randomizearray.addEventListener("click", function () {
-    createRandomArray();
+    unsorted_array = createRandomArray();
     bars_container.innerHTML = ""
     renderBars(unsorted_array)
 })
 
 slider.addEventListener("input", function () {
-  numOfBars = slider.value;
-  //console.log(numOfBars);
-  bars_container.innerHTML = "";
-  unsorted_array = createRandomArray();
-  renderBars(unsorted_array);
+    numOfBars = slider.value;
+    bars_container.innerHTML = "";
+    unsorted_array = createRandomArray();
+    renderBars(unsorted_array);
 });
 
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function shellSort(arr) {
+    console.log(arr)
+    let bars = document.getElementsByClassName("bar");
+    let n = arr.length;
+    for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (let i = gap; i < n; i += 1) {
+            let temp = arr[i];
+            let j;
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+                arr[j] = arr[j - gap];
+                bars[j].style.backgroundColor = "red";
+                bars[j - gap].style.backgroundColor = "red";
+                await sleep(30);
+                bars[j].style.height = arr[j] * heightFactor + 'px';
+            }
+            arr[j] = temp;
+            bars[j].style.height = arr[j] * heightFactor + 'px';
+            bars[j].style.backgroundColor = "white";
+            await sleep(30);
+        }
+    }
+    console.log(arr)
+    return arr;
 }
 
 async function bubbleSort(array) {
@@ -83,7 +106,52 @@ async function bubbleSort(array) {
     return array;
 }
 
-sort_button.addEventListener("click", function () {
+async function InsertionSort(array) {
+    let bars = document.getElementsByClassName("bar");
+    for (let i = 1; i < array.length; i++) {
+        let key = array[i];
+        let j = i - 1;
+        while (j >= 0 && array[j] > key) {
+            array[j + 1] = array[j];
+            bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
+            bars[j + 1].style.backgroundColor = "yellow";
+            //bars[j + 1].innerText = array[j + 1];
+            await sleep(30);
+
+            for (let k = 0; k < bars.length; k++) {
+                if (k != j + 1) {
+                    bars[k].style.backgroundColor = "white";
+                }
+            }
+            j = j - 1;
+        }
+        array[j + 1] = key;
+        bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
+        bars[j + 1].style.backgroundColor = "white";
+        //bars[j + 1].innerText = array[j + 1];
+        await sleep(30);
+    }
+
+    for (let k = 0; k < bars.length; k++) {
+        bars[k].style.backgroundColor = "aqua";
+    }
+    return array;
+}
+
+//Listeners
+
+
+bubblesort_button.addEventListener("click", function () {
     let sorted_array = bubbleSort(unsorted_array);
+    console.log(sorted_array)
+})
+
+insertionsort_button.addEventListener("click", function () {
+    let sorted_array = InsertionSort(unsorted_array);
+    console.log(sorted_array)
+})
+
+shellsort_button.addEventListener("click", function () {
+    let sorted_array = shellSort(unsorted_array);
     console.log(sorted_array)
 })
