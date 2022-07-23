@@ -10,5 +10,7 @@ The sorting visualizer serves the mere purpose of visualization of 5 Sorting Alg
 5. Shell Sort - Shell sort is a generalized version of the insertion sort algorithm. It first sorts elements that are far apart from each other and successively reduces the interval between the elements to be sorted. The interval between the elements is reduced based on the sequence used.
 
 ## Preview
+![image](https://user-images.githubusercontent.com/76687631/180609959-557939e2-e01e-489d-a515-7ceb3dffca0f.png)
+
 ![image](https://user-images.githubusercontent.com/76687631/180609757-05dcf179-2894-4478-bb00-42b72480f4f7.png)
 
