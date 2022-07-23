@@ -90,7 +90,7 @@ button:hover {
 }
 
 h1 {
-    padding: 1.5rem;
+    padding-top: 1.5rem;
     text-align: center;
     color: #fff;
 }
@@ -146,9 +146,99 @@ td {
     color: #ffffff;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px)  {
     h1 {
-        padding: 1.2rem;
+        padding-top: 1.2rem;
+        text-align: center;
+        color: #fff;
+    }
+
+    .sidenav {
+        margin: 10px;
+        height: auto;
+        width: 9rem;
+        position: fixed;
+        border-radius: 10%;
+        padding: 0;
+        font-size: 0.5rem;
+        /* Glassmorphism */
+        background: rgba(239, 239, 255, 0.19);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.1px);
+        -webkit-backdrop-filter: blur(9.1px);
+        border: 1px solid rgba(239, 239, 255, 0.3);
+        align-items: center;
+        justify-content: center
+    }
+
+    .container {
+        max-width: 80vw;
+        height: 65vh;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0px;
+        overflow: auto;
+    }
+
+    .buttons_container>button,
+    select {
+        margin: 0.3rem 0;
+        width: 100px;
+        text-align: center;
+        height: 20px;
+        background-color: #677685;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    #slider {
+        width: 100px;
+    }
+
+    footer {
+        font-size: 0.4rem;
+        text-align: center;
+    }
+
+    .bar {
+        width: 0.8px;
+        background-color: #56697b;
+        margin: 0 0.3px;
+        transition: height 0.5s ease-in-out;
+    }
+
+    .right {
+        width: auto;
+        height: auto;
+        bottom: 0;
+        right: 0;
+        line-height: 0.6rem;
+    }
+
+    table,
+    th,
+    td {
+        font-size: 0.7rem;
+        border-collapse: collapse;
+        border: #929292 solid 1px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+}
+
+@media only screen and (max-height: 600px)  {
+    h1 {
+        padding-top: 1.2rem;
         text-align: center;
         color: #fff;
     }
