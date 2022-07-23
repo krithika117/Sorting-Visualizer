@@ -2,6 +2,8 @@
 
 The sorting visualizer serves the mere purpose of visualization of 5 Sorting Algorithms namely Selection sort, Bubble Sort, Merge sort, Insertion Sort and Shell Sort with the help of JS Functions. It also provides the Time and Space Complexities of the algorithm currently running.
 
+Take a look at the [Sorting Visualizer](https://krithika117.github.io/sorting-visualizer/) :)
+
 ## Algorithms
 1. Selection sort - It is an in-place, unstable, comparison algorithm. This means that it transforms the input collection using no auxiliary data structures and that the input is overridden by the output (in-place algorithm).
 2. Bubble Sort - Sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
