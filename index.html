@@ -7,33 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <title>Sorting Visualizer</title>
+    <link rel="icon" type="image/x-icon" href="sort.svg">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body>
     <h1>Sorting Visualizer</h1>
-    <div class="container">
-        <div class="buttons_container">
-            <button id="randomizearray_button">Randomize Array</button>
-            <input type="range" id="slider" min="50" max="300" step="5" value="50" default="50" />
-            <!-- <button id="bubblesort_button">Bubble Sort</button>
+    <div class="sidenav">
+        <div class="buttons_container box">
+            <span>Controls</span>
+            <button id="randomizearray_button">Generate new array</button><br>
+            Elements <span id="output">70</span><input type="range" id="slider" min="50" max="225" step="5" value="70"
+                default="70" /><br>
+            <!-- 
+            <button id="bubblesort_button">Bubble Sort</button>
             <button id="insertionsort_button">Insertion Sort</button>
             <button id="shellsort_button">Shell Sort</button>
             <button id="selectionsort_button">Selection Sort</button>
-            <button id="mergesort_button">Merge Sort</button> -->
+            <button id="mergesort_button">Merge Sort</button> 
+            -->
             <select name="" id="algo">
                 <option value="bubble">Bubble Sort</option>
                 <option value="insertion">Insertion Sort</option>
                 <option value="selection">Selection Sort</option>
                 <option value="merge">Merge Sort</option>
                 <option value="shell">Shell Sort</option>
-              </select>
+            </select>
+            <br>
             <button id="sort_button">Sort</button>
+            <footer>Developed by Krithika :)</footer>
         </div>
+    </div>
+    <div class="container">
         <div class="bars_container" id="bars_container">
         </div>
-
     </div>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

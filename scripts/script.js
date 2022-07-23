@@ -16,7 +16,7 @@ let slider = document.getElementById("slider");
 let minRange = 1;
 let maxRange = 240;
 let numOfBars = slider.value;
-let heightFactor = 1.5;
+let heightFactor = 1.7;
 let unsorted_array = new Array(numOfBars);
 
 //Helper to generate random no.
@@ -62,6 +62,10 @@ slider.addEventListener("input", function () {
     bars_container.innerHTML = "";
     unsorted_array = createRandomArray();
     renderBars(unsorted_array);
+    
+        
+           output.innerHTML = this.value;
+     
 });
 
 //sleep helper for await inorder to create delay in visualization
@@ -104,6 +108,7 @@ async function shellSort(arr) {
     for (let k = 0; k < bars.length; k++) {
         bars[k].style.backgroundColor = "#A2F314";
     }
+    toastProduce("Sorted")
     return arr;
 }
 
@@ -135,6 +140,7 @@ async function selectionSort(arr) {
     for (let k = 0; k < bars.length; k++) {
         bars[k].style.backgroundColor = "#A2F314";
     }
+    toastProduce("Sorted")
     return arr
 }
 
@@ -168,6 +174,7 @@ async function bubbleSort(array) {
     for (let k = 0; k < bars.length; k++) {
         bars[k].style.backgroundColor = "#A2F314";
     }
+    toastProduce("Sorted")
     return array;
 }
 
@@ -199,6 +206,7 @@ async function InsertionSort(array) {
     for (let k = 0; k < bars.length; k++) {
         bars[k].style.backgroundColor = "#A2F314";
     }
+    toastProduce("Sorted")
     return array;
 }
 
@@ -269,6 +277,7 @@ async function mergeSort(arr) {
     for (let k = 0; k < bars.length; k++) {
         bars[k].style.backgroundColor = "#A2F314";
     }
+    toastProduce("Sorted")
 }
 
 //Listeners for every button
@@ -319,7 +328,23 @@ sort_button.addEventListener("click", function () {
           bubbleSort(unsorted_array);
           break;
       }
-    
-    
-    // console.log(sorted_array)
 })
+
+//Toastify for toast messages
+function toastProduce(msg) {
+    Toastify({
+        text: msg,
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+            background: "rgba(239, 239, 255, 0.19)",
+            color: "#fff",
+
+        },
+        onClick: function () {}
+    }).showToast();
+
+
+}
