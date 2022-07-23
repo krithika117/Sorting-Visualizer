@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
-<body>
+<body onload="document.body.style.opacity='1'">
+
 
 
     <h1>Sorting Visualizer</h1>
@@ -19,8 +20,8 @@
         <div class="buttons_container box">
             <span>Controls</span>
             <button id="randomizearray_button">Generate new array</button><br>
-            Elements <span id="output">200</span><input type="range" id="slider" min="50" max="200" step="5" value="200"
-                default="200" /><br>
+            Elements <span id="output">125</span><input type="range" id="slider" min="50" max="200" step="5" value="125"
+                default="125" /><br>
             <select name="" id="algo">
                 <option value="shell">Shell Sort</option>
                 <option value="bubble">Bubble Sort</option>
