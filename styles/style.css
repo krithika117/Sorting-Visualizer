@@ -17,6 +17,9 @@ body {
 
 }
 
+a{
+    text-decoration: none;
+}
 body.dark {
     background-color: #212121;
     color: #fff;
