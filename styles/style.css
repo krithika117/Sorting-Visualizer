@@ -101,11 +101,12 @@ h1.dark {
 }
 
 footer {
+    
     font-size: 0.8rem;
     text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
 
     .sidenav {
         margin: 3px;
@@ -129,7 +130,7 @@ footer {
     }
 
     .container {
-        max-width: 70vw;
+        max-width: 80vw;
         height: 70vh;
         width: 100%;
         margin: 0 auto;
@@ -163,5 +164,11 @@ footer {
     footer {
         font-size: 0.4rem;
         text-align: center;
+    }
+    .bar {
+        width: 0.8px;
+        background-color: #56697b;
+        margin: 0 0.3px;
+        transition: height 0.5s ease-in-out;
     }
 }
