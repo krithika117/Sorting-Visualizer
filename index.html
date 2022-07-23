@@ -9,34 +9,60 @@
     <title>Sorting Visualizer</title>
     <link rel="icon" type="image/x-icon" href="sort.svg">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
 </head>
 
 <body>
+
+
     <h1>Sorting Visualizer</h1>
-    <div class="sidenav">
+    <div class="sidenav left">
         <div class="buttons_container box">
             <span>Controls</span>
             <button id="randomizearray_button">Generate new array</button><br>
             Elements <span id="output">200</span><input type="range" id="slider" min="50" max="225" step="5" value="200"
                 default="200" /><br>
-            <!-- 
-            <button id="bubblesort_button">Bubble Sort</button>
-            <button id="insertionsort_button">Insertion Sort</button>
-            <button id="shellsort_button">Shell Sort</button>
-            <button id="selectionsort_button">Selection Sort</button>
-            <button id="mergesort_button">Merge Sort</button> 
-            -->
             <select name="" id="algo">
+                <option value="shell">Shell Sort</option>
                 <option value="bubble">Bubble Sort</option>
                 <option value="insertion">Insertion Sort</option>
                 <option value="selection">Selection Sort</option>
                 <option value="merge">Merge Sort</option>
-                <option value="shell">Shell Sort</option>
             </select>
             <br>
             <button id="sort_button">Sort</button>
             <footer>Developed by Krithika :)</footer>
+        </div>
+    </div>
+    <div class="sidenav right">
+        <div class="buttons_container box">
+            <div id="sortname"></div><br>
+
+            <table>
+                <table>
+                    <tr>
+                        <th colspan=2>Time Complexity</th>
+                    </tr>
+                    <tr>
+                        <td> Best Case </td>
+                        <td id="bc"></td>
+                    </tr>
+                    <tr>
+                        <td> Average Case </td>
+                        <td id="ac"></td>
+                    </tr>
+                    <tr>
+                        <td> Worst Case </td>
+                        <td id="wc"></td>
+                    </tr>
+                    <tr>
+                        <th colspan=2>Space Complexity</th>
+                    </tr>
+                    <tr>
+                        <td> Worst Case </td>
+                        <td id="sc"></td>
+                    </tr>
+                </table>
+            </table>
         </div>
     </div>
     <div class="container">

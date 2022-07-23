@@ -24,8 +24,7 @@ body.dark {
     width: 12.5rem;
     position: fixed;
     border-radius: 10%;
-    bottom: 0;
-    left: 0;
+
     /* From https://css.glass */
     background: rgba(239, 239, 255, 0.19);
     border-radius: 16px;
@@ -91,7 +90,7 @@ button:hover {
 }
 
 h1 {
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
     color: #fff;
 }
@@ -101,21 +100,65 @@ h1.dark {
 }
 
 footer {
-    
+
     font-size: 0.8rem;
     text-align: center;
 }
 
-@media only screen and (max-width: 900px) {
+table,
+th,
+td {
+    border-collapse: collapse;
+    padding: 5px;
+    border: #677685 solid 1px;
+    text-align: center;
+    color: #677685;
+
+}
+
+.left {
+
+    bottom: 0;
+    left: 0;
+}
+
+
+.right {
+
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    line-height: 1.4rem;
+}
+
+sup {
+    color: #ffffff;
+}
+
+table,
+th,
+td {
+    font-size: 1rem;
+    border-collapse: collapse;
+    border: #ffffff solid 1px;
+    text-align: center;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 700px) {
+    h1 {
+        padding: 1.2rem;
+        text-align: center;
+        color: #fff;
+    }
 
     .sidenav {
-        margin: 3px;
+        margin: 10px;
         height: auto;
         width: 9rem;
         position: fixed;
         border-radius: 10%;
-        bottom: 0;
-        left: 0;
         padding: 0;
         font-size: 0.5rem;
         /* Glassmorphism */
@@ -131,7 +174,7 @@ footer {
 
     .container {
         max-width: 80vw;
-        height: 70vh;
+        height: 65vh;
         width: 100%;
         margin: 0 auto;
         display: flex;
@@ -165,10 +208,30 @@ footer {
         font-size: 0.4rem;
         text-align: center;
     }
+
     .bar {
         width: 0.8px;
         background-color: #56697b;
         margin: 0 0.3px;
         transition: height 0.5s ease-in-out;
     }
+
+    .right {
+        width: auto;
+        height: auto;
+        bottom: 0;
+        right: 0;
+        line-height: 0.6rem;
+    }
+
+    table,
+    th,
+    td {
+        font-size: 0.7rem;
+        border-collapse: collapse;
+        border: #929292 solid 1px;
+        text-align: center;
+        color: #ffffff;
+    }
+
 }

@@ -1,12 +1,7 @@
 //Buttons and Slider
 let randomizearray = document.getElementById('randomizearray_button')
-// let bubblesort_button = document.getElementById('bubblesort_button')
-// let insertionsort_button = document.getElementById('insertionsort_button')
-// let shellsort_button = document.getElementById('shellsort_button')
-// let selectionsort_button = document.getElementById('selectionsort_button')
-// let mergesort_button = document.getElementById('mergesort_button')
-let sort_button = document.getElementById('sort_button')
 
+let sort_button = document.getElementById('sort_button')
 let select_algo = document.getElementById("algo");
 
 
@@ -16,7 +11,7 @@ let slider = document.getElementById("slider");
 let minRange = 1;
 let maxRange = 240;
 let numOfBars = slider.value;
-let heightFactor = 1.7;
+let heightFactor = 1.5;
 let unsorted_array = new Array(numOfBars);
 
 //Helper to generate random no.
@@ -62,10 +57,10 @@ slider.addEventListener("input", function () {
     bars_container.innerHTML = "";
     unsorted_array = createRandomArray();
     renderBars(unsorted_array);
-    
-        
-           output.innerHTML = this.value;
-     
+
+
+    output.innerHTML = this.value;
+
 });
 
 //sleep helper for await inorder to create delay in visualization
@@ -77,7 +72,7 @@ function sleep(ms) {
 let algotouse = "";
 
 select_algo.addEventListener("change", function () {
-  algotouse = select_algo.value;
+    algotouse = select_algo.value;
 });
 
 
@@ -281,53 +276,34 @@ async function mergeSort(arr) {
 }
 
 //Listeners for every button
-// selectionsort_button.addEventListener("click", function () {
-//     let sorted_array = selectionSort(unsorted_array);
-//     // console.log(sorted_array)
-// })
-
-
-// bubblesort_button.addEventListener("click", function () {
-//     let sorted_array = bubbleSort(unsorted_array);
-//     // console.log(sorted_array)
-// })
-
-// insertionsort_button.addEventListener("click", function () {
-//     let sorted_array = InsertionSort(unsorted_array);
-//     // console.log(sorted_array)
-// })
-
-// shellsort_button.addEventListener("click", function () {
-//     let sorted_array = shellSort(unsorted_array);
-//     // console.log(sorted_array)
-// })
-
-// mergesort_button.addEventListener("click", function () {
-//     let sorted_array = mergeSort(unsorted_array);  
-//     // console.log(sorted_array)
-// })
-
+dykProduce("Shell Sort", "Ω(NlogN)", "Θ(NlogN)", "O(Nl&#178;)", "O(1)")
 sort_button.addEventListener("click", function () {
     switch (algotouse) {
         case "shell":
-          shellSort(unsorted_array);
-          break;
+            dykProduce("Shell Sort", "Ω(NlogN)", "Θ(NlogN)", "O(Nl&#178;)", "O(1)")
+            shellSort(unsorted_array);
+            break;
         case "bubble":
-          bubbleSort(unsorted_array);
-          break;
+            dykProduce("Bubble Sort", "Ω(N)", "Θ(N&#178;)", "O(N&#178;)", "O(1)")
+            bubbleSort(unsorted_array);
+            break;
         case "insertion":
-          InsertionSort(unsorted_array);
-          break;
+            dykProduce("Insertion Sort", "Ω(N)", "Θ(N&#178;)", "O(N&#178;)", "O(1)")
+            InsertionSort(unsorted_array);
+            break;
         case "selection":
-          selectionSort(unsorted_array);
-          break;
+            dykProduce("Selection Sort", "Ω(N&#178;)", "Θ(N&#178;)", "O(N&#178;)", "O(1)")
+            selectionSort(unsorted_array);
+            break;
         case "merge":
-        mergeSort(unsorted_array);
+            dykProduce("Merge Sort", "Ω(N)", "Θ(N&#178;)", "O(N&#178;)", "O(N)")
+            mergeSort(unsorted_array);
             break;
         default:
-          bubbleSort(unsorted_array);
-          break;
-      }
+            dykProduce("Bubble Sort", "Ω(N)", "Θ(N&#178;)", "O(N&#178;)", "O(1)")
+            bubbleSort(unsorted_array);
+            break;
+    }
 })
 
 //Toastify for toast messages
@@ -345,6 +321,12 @@ function toastProduce(msg) {
         },
         onClick: function () {}
     }).showToast();
+}
 
-
+function dykProduce(sortingName, bc, ac, wc, sc) {
+    document.getElementById('sortname').innerHTML = sortingName;
+    document.getElementById('bc').innerHTML = bc;
+    document.getElementById('wc').innerHTML = wc;
+    document.getElementById('ac').innerHTML = ac;
+    document.getElementById('sc').innerHTML = sc;
 }
