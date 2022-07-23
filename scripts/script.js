@@ -276,7 +276,7 @@ async function mergeSort(arr) {
 }
 
 //Listeners for every button
-dykProduce("Shell Sort", "Ω(NlogN)", "Θ(NlogN)", "O(Nl&#178;)", "O(1)")
+dykProduce("Shell Sort", "Ω(NlogN)", "Θ(NlogN)", "O(N&#178;)", "O(1)")
 sort_button.addEventListener("click", function () {
     switch (algotouse) {
         case "shell":
