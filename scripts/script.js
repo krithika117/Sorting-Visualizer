@@ -276,11 +276,11 @@ async function mergeSort(arr) {
 }
 
 //Listeners for every button
-dykProduce("Shell Sort", "Ω(N)", "Θ(NlogN)", "O(NlogN)", "O(1)")
+dykProduce("Bubble Sort", "Ω(N)", "Θ(N&#178;)", "O(N&#178;)", "O(1)")
 sort_button.addEventListener("click", function () {
     switch (algotouse) {
         case "shell":
-            dykProduce("Shell Sort", "Ω(N)", "Θ(NlogN)", "O(NlogN)", "O(1)")
+            dykProduce("Shell Sort", "Ω(N)", "Θ(NlogN)", "O((NlogN)&#178;)", "O(1)")
             shellSort(unsorted_array);
             break;
         case "bubble":
